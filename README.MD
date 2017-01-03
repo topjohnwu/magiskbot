@@ -16,3 +16,4 @@ Open issue to request to add / remove a module from the Magisk Repo
 [Console-Controller-Keylayouts](https://github.com/Magisk-Modules-Repo/Console-Controller-Keylayouts)  
 [bacon-mic-fix](https://github.com/Magisk-Modules-Repo/bacon-mic-fix)  
 [Google_Assistant_Enabler](https://github.com/Magisk-Modules-Repo/Google_Assistant_Enabler)  
+[AppSystemizer](https://github.com/Magisk-Modules-Repo/AppSystemizer)  
