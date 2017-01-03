@@ -15,3 +15,4 @@ Open issue to request to add / remove a module from the Magisk Repo
 [Nexus6_LED_Enabler](https://github.com/Magisk-Modules-Repo/Nexus6_LED_Enabler)  
 [Console-Controller-Keylayouts](https://github.com/Magisk-Modules-Repo/Console-Controller-Keylayouts)  
 [bacon-mic-fix](https://github.com/Magisk-Modules-Repo/bacon-mic-fix)  
+[Google_Assistant_Enabler](https://github.com/Magisk-Modules-Repo/Google_Assistant_Enabler)  
