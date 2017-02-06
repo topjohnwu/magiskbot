@@ -20,3 +20,4 @@ Open issue to request to add / remove a module from the Magisk Repo
 [magisk-soundmod-s7-n](https://github.com/Magisk-Modules-Repo/magisk-soundmod-s7-n)  
 [magisk-notosanscjk-nougat](https://github.com/Magisk-Modules-Repo/magisk-notosanscjk-nougat)  
 [op3wificb](https://github.com/Magisk-Modules-Repo/op3wificb)  
+[shamuSpeakerphoneEchoFix](https://github.com/Magisk-Modules-Repo/shamuSpeakerphoneEchoFix)  
