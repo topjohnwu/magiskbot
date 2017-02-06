@@ -20,3 +20,4 @@ Open issue to request to add / remove a module from the Magisk Repo
 [Volume-Fix-for-Nexus-6-7.1.1](https://github.com/Magisk-Modules-Repo/Volume-Fix-for-Nexus-6-7.1.1)  
 [magisk-soundmod-s7-n](https://github.com/Magisk-Modules-Repo/magisk-soundmod-s7-n)  
 [magisk-notosanscjk-nougat](https://github.com/Magisk-Modules-Repo/magisk-notosanscjk-nougat)  
+[op3wificb](https://github.com/Magisk-Modules-Repo/op3wificb)  
