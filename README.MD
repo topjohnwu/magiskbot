@@ -1,8 +1,7 @@
 # Magisk Repo Central
 Open issue to request to add / remove a module from the Magisk Repo
 
-## Available Repos
-[phh-superuser](https://github.com/Magisk-Modules-Repo/phh-superuser)  
+## Available Repos  
 [ViPER4Android](https://github.com/Magisk-Modules-Repo/ViPER4Android)  
 [xposed_21](https://github.com/Magisk-Modules-Repo/xposed_21)  
 [xposed_22](https://github.com/Magisk-Modules-Repo/xposed_22)  
