@@ -18,3 +18,4 @@ Open issue to request to add / remove a module from the Magisk Repo
 [Google_Assistant_Enabler](https://github.com/Magisk-Modules-Repo/Google_Assistant_Enabler)  
 [AppSystemizer](https://github.com/Magisk-Modules-Repo/AppSystemizer)  
 [Volume-Fix-for-Nexus-6-7.1.1](https://github.com/Magisk-Modules-Repo/Volume-Fix-for-Nexus-6-7.1.1)  
+[magisk-soundmod-s7-n](https://github.com/Magisk-Modules-Repo/magisk-soundmod-s7-n)  
