@@ -1,5 +1,6 @@
 # Magisk Repo Central
-Open issue to request to add / remove a module from the Magisk Repo
+Open issue to request to add / remove a module from the Magisk Repo  
+Any other requests are also handled with issues
 
 ## Available Repos  
 [ViPER4Android](https://github.com/Magisk-Modules-Repo/ViPER4Android)  
@@ -21,3 +22,4 @@ Open issue to request to add / remove a module from the Magisk Repo
 [magisk-notosanscjk-nougat](https://github.com/Magisk-Modules-Repo/magisk-notosanscjk-nougat)  
 [op3wificb](https://github.com/Magisk-Modules-Repo/op3wificb)  
 [shamuSpeakerphoneEchoFix](https://github.com/Magisk-Modules-Repo/shamuSpeakerphoneEchoFix)  
+[Tethering_Enabler](https://github.com/Magisk-Modules-Repo/Tethering_Enabler)  
