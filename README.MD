@@ -26,3 +26,4 @@ Any other requests are also handled with issues
 [Dolby Atmos](https://github.com/Magisk-Modules-Repo/magisk-module-dap)  
 [Magisk-ios10-Emoji-font](https://github.com/Magisk-Modules-Repo/Magisk-ios10-Emoji-font)  
 [Audio-Modification-Library](https://github.com/Magisk-Modules-Repo/Audio-Modification-Library)  
+[AM3D-Zirene-Sound](https://github.com/Magisk-Modules-Repo/AM3D-Zirene-Sound)
