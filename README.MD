@@ -24,3 +24,4 @@ Any other requests are also handled with issues
 [shamuSpeakerphoneEchoFix](https://github.com/Magisk-Modules-Repo/shamuSpeakerphoneEchoFix)  
 [Tethering_Enabler](https://github.com/Magisk-Modules-Repo/Tethering_Enabler)  
 [Dolby Atmos](https://github.com/Magisk-Modules-Repo/magisk-module-dap)  
+[Magisk-ios10-Emoji-font](https://github.com/Magisk-Modules-Repo/Magisk-ios10-Emoji-font)  
