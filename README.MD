@@ -33,3 +33,4 @@ Any other requests are also handled with issues
 [Universal-deep_buffer-Remover](https://github.com/Magisk-Modules-Repo/Universal-deep_buffer-Remover)  
 [hardware-key-disabler-linage-os](https://github.com/Magisk-Modules-Repo/hardware-key-disabler-linage-os)  
 [Unified-Hosts-Adblock](https://github.com/Magisk-Modules-Repo/Unified-Hosts-Adblock)  
+[Dolby-Atmos-Lenovo-A7000-6.5](https://github.com/Magisk-Modules-Repo/Dolby-Atmos-Lenovo-A7000-6.5)  
