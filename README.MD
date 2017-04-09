@@ -37,3 +37,4 @@ Any other requests are also handled with issues
 [Dolby-Atmos-LeEco-Le-Pro-3](https://github.com/Magisk-Modules-Repo/Dolby-Atmos-LeEco-Le-Pro-3)  
 [magisk-UKM](https://github.com/Magisk-Modules-Repo/magisk-UKM)  
 [Systemlessly-Font-with-Tsukushimarugo-A-CJK-Sleek](https://github.com/Magisk-Modules-Repo/Systemlessly-Font-with-Tsukushimarugo-A-CJK-Sleek)  
+[magisk-nfc-swp-nexus6](https://github.com/Magisk-Modules-Repo/magisk-nfc-swp-nexus6)
