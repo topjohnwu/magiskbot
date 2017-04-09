@@ -36,3 +36,4 @@ Any other requests are also handled with issues
 [Dolby-Atmos-Lenovo-A7000-6.5](https://github.com/Magisk-Modules-Repo/Dolby-Atmos-Lenovo-A7000-6.5)  
 [Dolby-Atmos-LeEco-Le-Pro-3](https://github.com/Magisk-Modules-Repo/Dolby-Atmos-LeEco-Le-Pro-3)  
 [magisk-UKM](https://github.com/Magisk-Modules-Repo/magisk-UKM)  
+[Systemlessly-Font-with-Tsukushimarugo-A-CJK-Sleek](https://github.com/Magisk-Modules-Repo/Systemlessly-Font-with-Tsukushimarugo-A-CJK-Sleek)  
