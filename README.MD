@@ -28,4 +28,5 @@ Any other requests are also handled with issues
 [Audio-Modification-Library](https://github.com/Magisk-Modules-Repo/Audio-Modification-Library)  
 [AM3D-Zirene-Sound](https://github.com/Magisk-Modules-Repo/AM3D-Zirene-Sound)  
 [terminal_debloater_magisk](https://github.com/Magisk-Modules-Repo/terminal_debloater_magisk)  
-[AdaptiveSound](https://github.com/Magisk-Modules-Repo/AdaptiveSound)  
+[AdaptiveSound](https://github.com/Magisk-Modules-Repo/AdaptiveSound) 
+[CrossBreederLite](https://github.com/Magisk-Modules-Repo/CrossBreederLite)
