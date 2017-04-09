@@ -31,3 +31,4 @@ Any other requests are also handled with issues
 [AdaptiveSound](https://github.com/Magisk-Modules-Repo/AdaptiveSound) 
 [CrossBreederLite](https://github.com/Magisk-Modules-Repo/CrossBreederLite)  
 [Universal-deep_buffer-Remover](https://github.com/Magisk-Modules-Repo/Universal-deep_buffer-Remover)  
+[hardware-key-disabler-linage-os](https://github.com/Magisk-Modules-Repo/hardware-key-disabler-linage-os)  
