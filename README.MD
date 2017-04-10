@@ -39,3 +39,4 @@ Any other requests are also handled with issues
 [Systemlessly-Font-with-Tsukushimarugo-A-CJK-Sleek](https://github.com/Magisk-Modules-Repo/Systemlessly-Font-with-Tsukushimarugo-A-CJK-Sleek)  
 [magisk-nfc-swp-nexus6](https://github.com/Magisk-Modules-Repo/magisk-nfc-swp-nexus6)  
 [sprintvvm-magisk](https://github.com/Magisk-Modules-Repo/sprintvvm-magisk)  
+[Fdroid-Priv](https://github.com/Magisk-Modules-Repo/Fdroid-Priv)  
