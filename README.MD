@@ -41,3 +41,4 @@ Any other requests are also handled with issues
 [Fdroid-Priv](https://github.com/Magisk-Modules-Repo/Fdroid-Priv)  
 [magisk-foldermount](https://github.com/Magisk-Modules-Repo/magisk-foldermount)  
 [runtime-optimization](https://github.com/veez21/runtime-optimization)  
+[terminal_app_systemizer](https://github.com/Magisk-Modules-Repo/terminal_app_systemizer)  
