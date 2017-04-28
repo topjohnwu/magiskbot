@@ -40,3 +40,4 @@ Any other requests are also handled with issues
 [sprintvvm-magisk](https://github.com/Magisk-Modules-Repo/sprintvvm-magisk)  
 [Fdroid-Priv](https://github.com/Magisk-Modules-Repo/Fdroid-Priv)  
 [magisk-foldermount](https://github.com/Magisk-Modules-Repo/magisk-foldermount)  
+[runtime-optimization](https://github.com/veez21/runtime-optimization)  
