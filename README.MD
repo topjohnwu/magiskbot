@@ -43,3 +43,4 @@ Any other requests are also handled with issues
 [runtime-optimization](https://github.com/veez21/runtime-optimization)  
 [terminal_app_systemizer](https://github.com/Magisk-Modules-Repo/terminal_app_systemizer)  
 [xiaomi-safetynet-fix](https://github.com/Magisk-Modules-Repo/xiaomi-safetynet-fix)  
+[Greenify4Magisk](https://github.com/Magisk-Modules-Repo/Greenify4Magisk)  
