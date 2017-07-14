@@ -46,3 +46,4 @@ Any other requests are also handled with issues
 [Greenify4Magisk](https://github.com/Magisk-Modules-Repo/Greenify4Magisk)  
 [MagicGApps](https://github.com/Magisk-Modules-Repo/MagicGApps)  
 [Systemless_TZData](https://github.com/Magisk-Modules-Repo/Systemless_TZData)  
+[Magisk_Font_Bellota](https://github.com/Magisk-Modules-Repo/Magisk_Font_Bellota)  
