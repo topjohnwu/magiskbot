@@ -51,3 +51,5 @@ Any other requests are also handled with issues
 [SonyAppsEnabler](https://github.com/Magisk-Modules-Repo/SonyAppsEnabler)  
 [SonyAppsEnablerAlt](https://github.com/Magisk-Modules-Repo/SonyAppsEnablerAlt)  
 [magisk-module-koruri-font](https://github.com/Magisk-Modules-Repo/magisk-module-koruri-font)  
+[magisk-single-user](https://github.com/Magisk-Modules-Repo/magisk-single-user)  
+[IncreaseHeadphoneVolume](https://github.com/Magisk-Modules-Repo/IncreaseHeadphoneVolume)  
