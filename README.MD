@@ -48,3 +48,6 @@ Any other requests are also handled with issues
 [Systemless_TZData](https://github.com/Magisk-Modules-Repo/Systemless_TZData)  
 [Magisk_Font_Bellota](https://github.com/Magisk-Modules-Repo/Magisk_Font_Bellota)  
 [bixby-disabler](https://github.com/Magisk-Modules-Repo/bixby-disabler)  
+[SonyAppsEnabler](https://github.com/Magisk-Modules-Repo/SonyAppsEnabler)  
+[SonyAppsEnablerAlt](https://github.com/Magisk-Modules-Repo/SonyAppsEnablerAlt)  
+[magisk-module-koruri-font](https://github.com/Magisk-Modules-Repo/magisk-module-koruri-font)  
