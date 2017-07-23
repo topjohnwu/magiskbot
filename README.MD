@@ -59,5 +59,4 @@ Any other requests are also handled with issues
 [magisk-gms-doze](https://github.com/Magisk-Modules-Repo/magisk-gms-doze)  
 [magisk-wifi-bonding](https://github.com/Magisk-Modules-Repo/magisk-wifi-bonding)  
 [magisk-notocoloremoji-replacer](https://github.com/Magisk-Modules-Repo/magisk-notocoloremoji-replacer)  
-[adb-androidhost](https://github.com/Magisk-Modules-Repo/adb-androidhost)  
 [max-resolution-youtube](https://github.com/Magisk-Modules-Repo/max-resolution-youtube)  
