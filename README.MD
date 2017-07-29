@@ -65,7 +65,7 @@ Any other requests are also handled with issues
 [AndroidO-NotoColorEmojiReplacer](https://github.com/Magisk-Modules-Repo/AndroidO-NotoColorEmojiReplacer)  
 [sweep2sleep-disabler](https://github.com/Magisk-Modules-Repo/sweep2sleep-disabler)  
 [HEVC-Enabler-for-OP3T](https://github.com/Magisk-Modules-Repo/HEVC-Enabler-for-OP3T)  
-[db-Installer](https://github.com/Magisk-Modules-Repo/adb-Installer)  
+[adb-Installer](https://github.com/Magisk-Modules-Repo/adb-Installer)  
 [Adreno-Systemless-Installer](https://github.com/Magisk-Modules-Repo/Adreno-Systemless-Installer)  
 [Busybox-Installer](https://github.com/Magisk-Modules-Repo/Busybox-Installer)  
 [nano-Installer](https://github.com/Magisk-Modules-Repo/nano-Installer)  
