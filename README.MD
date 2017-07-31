@@ -69,3 +69,4 @@ Any other requests are also handled with issues
 [Adreno-Systemless-Installer](https://github.com/Magisk-Modules-Repo/Adreno-Systemless-Installer)  
 [Busybox-Installer](https://github.com/Magisk-Modules-Repo/Busybox-Installer)  
 [nano-Installer](https://github.com/Magisk-Modules-Repo/nano-Installer)  
+[Nexus-Media-Installer](https://github.com/Magisk-Modules-Repo/Nexus-Media-Installer)
