@@ -3,7 +3,6 @@ Open issue to request to add / remove a module from the Magisk Repo
 Any other requests are also handled with issues
 
 ## Available Repos  
-[ViPER4Android](https://github.com/Magisk-Modules-Repo/ViPER4Android)  
 [xposed_21](https://github.com/Magisk-Modules-Repo/xposed_21)  
 [xposed_22](https://github.com/Magisk-Modules-Repo/xposed_22)  
 [xposed_23](https://github.com/Magisk-Modules-Repo/xposed_23)  
@@ -74,3 +73,13 @@ Any other requests are also handled with issues
 [splatoon-2-font](https://github.com/Magisk-Modules-Repo/splatoon-2-font)  
 [DualSpeakerGalaxyS8](https://github.com/Magisk-Modules-Repo/DualSpeakerGalaxyS8)  
 [EnableGMSModuleMagisk](https://github.com/Magisk-Modules-Repo/EnableGMSModuleMagisk)  
+[magisk-gms-doze](https://github.com/Magisk-Modules-Repo/magisk-gms-doze)  
+[extendwifi](https://github.com/Magisk-Modules-Repo/extendwifi)  
+[ViPER4Android](https://github.com/Magisk-Modules-Repo/ViPER4Android)  
+[VoEnabler](https://github.com/Magisk-Modules-Repo/VoEnabler)  
+[magisk-gcam-patch](https://github.com/Magisk-Modules-Repo/magisk-gcam-patch)  
+[sysconfig-patcher](https://github.com/Magisk-Modules-Repo/sysconfig-patcher)  
+[Magic-Charging-Switch](https://github.com/Magisk-Modules-Repo/Magic-Charging-Switch)  
+[Mi5-Headphone-Volume-Fix](https://github.com/Magisk-Modules-Repo/Mi5-Headphone-Volume-Fix)  
+[Android-N-Emoji-Replacer](https://github.com/Magisk-Modules-Repo/Android-N-Emoji-Replacer)  
+[Galaxy-Note-8-Dual-Speaker-Mod-Magisk-Module](https://github.com/Magisk-Modules-Repo/Galaxy-Note-8-Dual-Speaker-Mod-Magisk-Module)  
