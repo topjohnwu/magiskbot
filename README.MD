@@ -7,6 +7,8 @@ Any other requests are also handled with issues
 [xposed_21](https://github.com/Magisk-Modules-Repo/xposed_21)  
 [xposed_22](https://github.com/Magisk-Modules-Repo/xposed_22)  
 [xposed_23](https://github.com/Magisk-Modules-Repo/xposed_23)  
+[xposed_24](https://github.com/Magisk-Modules-Repo/xposed_24)  
+[xposed_25](https://github.com/Magisk-Modules-Repo/xposed_25)  
 [GPEDialer_HTC10](https://github.com/Magisk-Modules-Repo/GPEDialer_HTC10)  
 [Magisk-EmojiOne-systemless](https://github.com/Magisk-Modules-Repo/Magisk-EmojiOne-systemless)  
 [magisk-enable-eis-nexus5x](https://github.com/Magisk-Modules-Repo/magisk-enable-eis-nexus5x)  
