@@ -83,3 +83,11 @@ Any other requests are also handled with issues
 [Mi5-Headphone-Volume-Fix](https://github.com/Magisk-Modules-Repo/Mi5-Headphone-Volume-Fix)  
 [Android-N-Emoji-Replacer](https://github.com/Magisk-Modules-Repo/Android-N-Emoji-Replacer)  
 [Galaxy-Note-8-Dual-Speaker-Mod-Magisk-Module](https://github.com/Magisk-Modules-Repo/Galaxy-Note-8-Dual-Speaker-Mod-Magisk-Module)  
+[magisk-gapps-h2os](https://github.com/Magisk-Modules-Repo/magisk-gapps-h2os)  
+[Magisk_Huawei_Call_Recorder](https://github.com/Magisk-Modules-Repo/Magisk_Huawei_Call_Recorder)  
+[ViPER4Android-v2.3.4.0](https://github.com/Magisk-Modules-Repo/ViPER4Android-v2.3.4.0)  
+[airaudio-magisk-module](https://github.com/Magisk-Modules-Repo/airaudio-magisk-module)  
+[google-framework-magisk](https://github.com/Magisk-Modules-Repo/google-framework-magisk)  
+[Volume_Steps_Increase](https://github.com/Magisk-Modules-Repo/Volume_Steps_Increase)  
+[nfc-swp-for-gemini](https://github.com/Magisk-Modules-Repo/nfc-swp-for-gemini)  
+
