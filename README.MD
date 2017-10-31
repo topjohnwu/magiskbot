@@ -80,4 +80,12 @@ Any other requests are also handled with issues
 [google-framework-magisk](https://github.com/Magisk-Modules-Repo/google-framework-magisk)  
 [Volume_Steps_Increase](https://github.com/Magisk-Modules-Repo/Volume_Steps_Increase)  
 [nfc-swp-for-gemini](https://github.com/Magisk-Modules-Repo/nfc-swp-for-gemini)  
-
+[ExSDCard-Write-Access-Enabler-Nougat-v2](https://github.com/Magisk-Modules-Repo/ExSDCard-Write-Access-Enabler-Nougat-v2)  
+[JamesDSPManager](https://github.com/Magisk-Modules-Repo/JamesDSPManager)  
+[ViPER4Android-FX](https://github.com/Magisk-Modules-Repo/ViPER4Android-FX)  
+[iYTBP-Vanced-Magisk-Repo](https://github.com/Magisk-Modules-Repo/iYTBP-Vanced-Magisk-Repo)  
+[iYTBP-Vanced-black-Magisk-Repo](https://github.com/Magisk-Modules-Repo/iYTBP-Vanced-black-Magisk-Repo)  
+[Init.d-Linker](https://github.com/Magisk-Modules-Repo/Init.d-Linker)  
+[Magisk-Manager-for-Recovery-Mode](https://github.com/Magisk-Modules-Repo/Magisk-Manager-for-Recovery-Mode)  
+[crokrammgmtfix](https://github.com/Magisk-Modules-Repo/crokrammgmtfix)  
+[google-sans-enabler](https://github.com/Magisk-Modules-Repo/google-sans-enabler)  
