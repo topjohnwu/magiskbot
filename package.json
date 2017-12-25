@@ -1,0 +1,25 @@
+{
+  "name": "magisk_repo_auto_updater",
+  "version": "1.0.0",
+  "description": "Auto handle new module requests",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/topjohnwu/Magisk_Repo_Submissions.git"
+  },
+  "author": "topjohnwu",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/topjohnwu/Magisk_Repo_Submissions/issues"
+  },
+  "homepage": "https://github.com/topjohnwu/Magisk_Repo_Submissions#readme",
+  "dependencies": {
+    "get-urls": "^7.2.0",
+    "github-api": "^3.0.0",
+    "node-fetch": "^1.7.3",
+    "parse-github-url": "^1.0.2"
+  }
+}
