@@ -51,11 +51,11 @@ const loadRepoInfo = (url) => {
       if (meta.id === undefined)
         throw 'Missing prop `id`'
       if (meta.versionCode && ! /^\d+$/.test(meta.versionCode))
-        throw `Invalid prop \`versionCode\`: ${meta.versionCode}`
+        throw `Invalid prop \`versionCode\`: \`${meta.versionCode}\``
       // Reject anything lower than 1400
       let version = meta.minMagisk ? meta.minMagisk : meta.template;
       if (version < 1400)
-        throw `Please update your module! Minimum: \`1400\`; submitted: \`${version}\``
+        throw `Please update your module! Minimum: \`1400\`; provided: \`${version}\``
       return meta;
     })
 }
@@ -107,7 +107,6 @@ const processIssue = issue => {
     } else {
       url = url[0];
       loadRepoInfo(url).then(meta => {
-        console.log(`#${issue.number} `, meta);
         createNewRepo(meta, url)
         .then((new_url) => {
           commentAndClose(submissions, issue.number,
@@ -153,7 +152,47 @@ const processIssue = issue => {
   }
 }
 
-submissions.listIssues(null, (err, res) => {
+const checkAndFixRepo = json => {
+  let repo = gh.getRepo(json.owner.login, json.name);
+  loadRepoInfo(json.html_url).then(meta => {
+    if (json.description != meta.id) {
+      console.log(`[${meta.name}] error: id missmatch`);
+      // Fix the description to ID
+      repo.updateRepository({
+        name: meta.repo,
+        description: meta.id
+      });
+    }
+  }).catch(err => {
+    console.log(`[${json.name}] error: ${err}`);
+    let last_push = (Date.now() - Date.parse(json.pushed_at)) / (1000 * 60 * 60 * 24);
+    if (last_push > 14) {
+      // The repo hasn't been updated for more than 2 weeks, remove from repo
+      console.log(`${Math.round(last_push)} days old, remove [${json.name}]`);
+      repo.deleteRepo();
+    } else {
+      // File an issue to notify the developer
+      let repoIssues = gh.getIssues(json.owner.login, json.name);
+      repoIssues.listIssues({ creator: config.username }, (_, res) => {
+        res = res.filter(issue => issue.title.startsWith('[MODERATION]'));
+        // Do not duplicate notices
+        if (res.length == 0) {
+          repoIssues.createIssue({
+            title: '[MODERATION] Please update your module',
+            body: `${err}\n\nClose this issue after you resolved the issue.`
+          });
+        }
+      });
+    }
+  });
+}
+
+// Process through all requests
+submissions.listIssues(null, (_, res) => {
   res.forEach(processIssue);
 })
 
+// Repo maintenance
+online.getRepos((_, res) => {
+  res.forEach(checkAndFixRepo);
+})
