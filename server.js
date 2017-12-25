@@ -4,6 +4,9 @@ const GitHub = require('github-api');
 const getUrls = require('get-urls');
 const ghParse = require('parse-github-url');
 const fetch = require('node-fetch');
+const express = require('express');
+const bodyParser = require('body-parser');
+const localtunnel = require('localtunnel');
 
 // Load config from external file, contains confidential information
 const config = require('./config')
@@ -11,6 +14,10 @@ const config = require('./config')
 const gh = new GitHub({ username: config.username, token: config.token });
 const submissions = gh.getIssues(config.username, config.submissions);
 const online = gh.getOrganization(config.org);
+const server = express();
+
+// Allow json body
+server.use(bodyParser.json());
 
 const handleFetchError = (res) => {
   if (!res.ok)
@@ -30,7 +37,7 @@ const parseProp = (data) => {
   return ret;
 }
 
-const loadRepoInfo = (url) => {
+const loadRepoInfo = (url, verify=true) => {
   let {owner, name} = ghParse(url);
   let metalink = `https://raw.githubusercontent.com/${owner}/${name}/master/module.prop`;
   return fetch(metalink)
@@ -47,15 +54,17 @@ const loadRepoInfo = (url) => {
       return json;
     })
     .then(meta => {
-      // Check if metadata are all valid
-      if (meta.id === undefined)
-        throw 'Missing prop `id`'
-      if (meta.versionCode && ! /^\d+$/.test(meta.versionCode))
-        throw `Invalid prop \`versionCode\`: \`${meta.versionCode}\``
-      // Reject anything lower than 1400
-      let version = meta.minMagisk ? meta.minMagisk : meta.template;
-      if (version < 1400)
-        throw `Please update your module! Minimum: \`1400\`; provided: \`${version}\``
+      if (verify) {
+        // Check if metadata are all valid
+        if (meta.id === undefined)
+          throw 'Missing prop `id`'
+        if (meta.versionCode && ! /^\d+$/.test(meta.versionCode))
+          throw `Invalid prop \`versionCode\`: \`${meta.versionCode}\``
+        // Reject anything lower than 1400
+        let version = meta.minMagisk ? meta.minMagisk : meta.template;
+        if (version < 1400)
+          throw `Please update your module! Minimum: \`1400\`; provided: \`${version}\``
+      }
       return meta;
     })
 }
@@ -128,7 +137,7 @@ const processIssue = issue => {
       commentAndClose(submissions, issue.number, `Bad Request: No GitHub link found!`);
     } else {
       url = url[0];
-      loadRepoInfo(url).then(meta => {
+      loadRepoInfo(url, false).then(meta => {
         if (meta.owner != config.org)
           throw `Provided module is not from ${config.org}`
 
@@ -173,7 +182,10 @@ const checkAndFixRepo = json => {
     } else {
       // File an issue to notify the developer
       let repoIssues = gh.getIssues(json.owner.login, json.name);
-      repoIssues.listIssues({ creator: config.username }, (_, res) => {
+      repoIssues.listIssues({ creator: config.username })
+      .then(res => {
+        if (! res instanceof Array)
+          return;
         res = res.filter(issue => issue.title.startsWith('[MODERATION]'));
         // Do not duplicate notices
         if (res.length == 0) {
@@ -182,17 +194,50 @@ const checkAndFixRepo = json => {
             body: `${err}\n\nClose this issue after you resolved the issue.`
           });
         }
-      });
+      }).catch();
     }
   });
 }
 
-// Process through all requests
-submissions.listIssues(null, (_, res) => {
-  res.forEach(processIssue);
+const startLocalTunnel = () => {
+  // Server initial startup, process through all requests
+  submissions.listIssues(null, (_, res) => res.forEach(processIssue))
+
+  // Repo maintenance
+  online.getRepos((_, res) => res.forEach(checkAndFixRepo))
+
+  return localtunnel(config.port, { subdomain: config.domain }, (err, tunnel) => {
+      if (err) {
+        console.log(err);
+        return startLocalTunnel();
+      } else {
+        console.log(`LocalTunnel: ${tunnel.url}`);
+      }
+  });
+}
+
+const actions = ["opened", "reopened", "edited"]
+
+// Start the server
+server.post('/', (req, res) => {
+  let event = req.body;
+  if (actions.includes(event.action) && event.issue.state === 'open') {
+    processIssue(event.issue);
+  }
+  res.json({ success: true });
 })
 
-// Repo maintenance
-online.getRepos((_, res) => {
-  res.forEach(checkAndFixRepo);
-})
+server.listen(config.port, () => console.log(`Server listening to ${config.port}`));
+
+// Enable localtunnel to expose our link
+let tunnel = startLocalTunnel();
+
+tunnel.on('close', () => {
+  console.log('localtunnel closed...');
+  tunnel = startLocalTunnel();
+});
+
+tunnel.on('error', (err) => {
+  console.log('localtunnel error...');
+  tunnel = startLocalTunnel();
+});

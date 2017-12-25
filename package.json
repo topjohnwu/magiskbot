@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/topjohnwu/Magisk_Repo_Submissions#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
     "get-urls": "^7.2.0",
     "github-api": "^3.0.0",
+    "localtunnel": "^1.8.3",
     "node-fetch": "^1.7.3",
     "parse-github-url": "^1.0.2"
   }
