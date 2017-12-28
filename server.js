@@ -6,7 +6,6 @@ const ghParse = require('parse-github-url');
 const fetch = require('node-fetch');
 const express = require('express');
 const bodyParser = require('body-parser');
-const localtunnel = require('localtunnel');
 
 // Load config from external file, contains confidential information
 const config = require('./config')
@@ -146,7 +145,7 @@ const processIssue = issue => {
         repo.isCollaborator(issue.user.login)
         .then(() => {
           repo.deleteRepo();
-          commentAndClose(submissions, issue.number,`Repo removed`);
+          commentAndClose(submissions, issue.number,`Repo removed as requested`);
         }).catch(() => {
           commentAndClose(submissions, issue.number,
             `Bad Request: You are not a collaborator of the requested module!`);
@@ -174,70 +173,47 @@ const checkAndFixRepo = json => {
     }
   }).catch(err => {
     console.log(`[${json.name}] error: ${err}`);
-    let last_push = (Date.now() - Date.parse(json.pushed_at)) / (1000 * 60 * 60 * 24);
-    if (last_push > 14) {
-      // The repo hasn't been updated for more than 2 weeks, remove from repo
-      console.log(`${Math.round(last_push)} days old, remove [${json.name}]`);
-      repo.deleteRepo();
-    } else {
-      // File an issue to notify the developer
-      let repoIssues = gh.getIssues(json.owner.login, json.name);
-      repoIssues.listIssues({ creator: config.username })
-      .then(res => {
-        if (! res instanceof Array)
-          return;
-        res = res.filter(issue => issue.title.startsWith('[MODERATION]'));
+    // File an issue to notify the developer
+    let repoIssues = gh.getIssues(json.owner.login, json.name);
+    repoIssues.listIssues({ creator: config.username })
+    .then(res => res.data)
+    .then(res => {
+      res = res.filter(issue => issue.title.startsWith('[MODERATION]'));
+      if (res.length == 0) {
         // Do not duplicate notices
-        if (res.length == 0) {
-          repoIssues.createIssue({
-            title: '[MODERATION] Please update your module',
-            body: `${err}\n\nClose this issue after you resolved the issue.`
-          });
-        }
-      }).catch();
-    }
-  });
-}
-
-const startLocalTunnel = () => {
-  // Server initial startup, process through all requests
-  submissions.listIssues(null, (_, res) => res.forEach(processIssue))
-
-  // Repo maintenance
-  online.getRepos((_, res) => res.forEach(checkAndFixRepo))
-
-  return localtunnel(config.port, { subdomain: config.domain }, (err, tunnel) => {
-      if (err) {
-        console.log(err);
-        return startLocalTunnel();
+        repoIssues.createIssue({
+          title: '[MODERATION] Please update your module',
+          body: `${err}\n\nClose this issue after you resolved the issue.`
+        });
       } else {
-        console.log(`LocalTunnel: ${tunnel.url}`);
+        let last_notify = (Date.now() - Date.parse(res[0].created_at)) / (1000 * 60 * 60 * 24);
+        if (last_notify > 14) {
+          // The repo hasn't been updated for more than 2 weeks since last notified
+          console.log(`${Math.round(last_notify)} days old, remove [${json.name}]`);
+          repo.deleteRepo();
+        }
       }
+    }).catch();
   });
 }
 
-const actions = ["opened", "reopened", "edited"]
+submissions.listIssues(null, (_, res) => res.forEach(processIssue));
+setTimeout(() => online.getRepos((_, res) => res.forEach(checkAndFixRepo)), 300 * 1000);
 
-// Start the server
+// Periodic checks
+setInterval(() => {
+  console.log('Running periodic checks');
+  submissions.listIssues(null, (_, res) => res.forEach(processIssue));
+  setTimeout(() => online.getRepos((_, res) => res.forEach(checkAndFixRepo)), 300 * 1000);
+}, 3600 * 1000);
+
+// Start the server to monitor webhooks
+const actions = ["opened", "reopened", "edited"]
 server.post('/', (req, res) => {
   let event = req.body;
-  if (actions.includes(event.action) && event.issue.state === 'open') {
+  if (actions.includes(event.action) && event.issue.state === 'open')
     processIssue(event.issue);
-  }
   res.json({ success: true });
 })
 
 server.listen(config.port, () => console.log(`Server listening to ${config.port}`));
-
-// Enable localtunnel to expose our link
-let tunnel = startLocalTunnel();
-
-tunnel.on('close', () => {
-  console.log('localtunnel closed...');
-  tunnel = startLocalTunnel();
-});
-
-tunnel.on('error', (err) => {
-  console.log('localtunnel error...');
-  tunnel = startLocalTunnel();
-});
