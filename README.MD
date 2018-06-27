@@ -13,9 +13,7 @@ This is the place for developers to submit their Magisk Module to the [Magisk-Mo
 All requests are done through issues and handled automatically by a small server (the code is available in this repo). Currently you have two actions availible:
 
 #### Submission:
-Create a new issue and start the title with **`[Submission]`**, then provide a link to **your module's repository**. Below is an example:
-![](images/submission.png)
+Create a new issue and start the title with **`[Submission]`**, then provide a link to **your module's repository**.
 
 #### Removal:
-If you decide to remove a module from the online repo, create a new issue and start the title with **`[Removal]`**, then provide the link to **your repository on [Magisk-Modules-Repo](https://github.com/Magisk-Modules-Repo)**. Below is an example:
-![](images/removal.png)
+If you decide to remove a module from the online repo, create a new issue and start the title with **`[Removal]`**, then provide the link to **your repository on [Magisk-Modules-Repo](https://github.com/Magisk-Modules-Repo)**.
