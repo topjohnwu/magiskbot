@@ -1,21 +1,20 @@
-import parseGithubUrl from 'parse-github-url';
+import parse from 'parse-github-url';
 import axios from 'axios';
 
-const MINMAGISK = 1500;
+import errno from './errno';
 
 class RepoProp {
   constructor(url) {
-    let { owner, name } = parseGithubUrl(url);
+    let { owner, name } = parse(url);
     this.url = url;
     this.name = name;
+    this.owner = owner;
     this.metalink = `https://raw.githubusercontent.com/${owner}/${name}/master/module.prop`;
   }
 
   load(verify = true) {
     return axios.get(this.metalink)
-      .catch(err => {
-        throw '`module.prop` does not exist on `master` branch'
-      })
+      .catch(err => { throw errno.ENOPROP })
       .then(res => {
         res.data.split('\n').forEach(line => {
           let s = line.split('=');
@@ -25,12 +24,12 @@ class RepoProp {
         })
         if (verify) {
           if (this.id === undefined)
-            throw 'Missing prop `id`'
+            throw errno.ENOID;
           if (this.versionCode && !/^\d+$/.test(this.versionCode))
-            throw `Invalid prop \`versionCode\`: \`${prop.versionCode}\``
+            errno.throw(errno.EINVALCODE, this.versionCode);
           let version = this.minMagisk ? this.minMagisk : this.template;
-          if (version < MINMAGISK)
-            throw `Please update your module! Minimum: \`${MINMAGISK}\`; provided: \`${version}\``
+          if (version < 1500)
+            errno.throw(errno.EOUTDATE, version);
         }
         return this;
       })

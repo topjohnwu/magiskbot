@@ -258,7 +258,7 @@ class Requestable {
             results.push(...thisGroup);
 
             const nextUrl = getNextPage(response.headers.link);
-            if (nextUrl && !(options && typeof options.page !== 'number')) {
+            if (nextUrl && !(options && options.page && typeof options.page !== 'number')) {
                log(`getting next page: ${nextUrl}`);
                return this._requestAllPages(nextUrl, options, cb, results);
             }
