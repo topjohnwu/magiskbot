@@ -15,7 +15,6 @@ const RepoModerator = repo => {
     }
   }).catch(err => {
     // Error found!
-    console.log(`${repo.name}: ${repo.description} => ${errno.strerr(err)}`);
     let ri = gh.getIssues(ORGANIZATION, repo.name);
     ri.listIssues().then(res => res.data).then(issues => {
       issues = issues.filter(issue => issue.user.login === bot);
@@ -28,6 +27,7 @@ const RepoModerator = repo => {
       if (removeRepo) {
         gh.getRepo(ORGANIZATION, repo.name).deleteRepo().then(() => ID_SET.delete(repo.description)).catch();
       } else if (issues.length === 0) {
+        console.log(`${repo.name}: ${errno.strerr(err)}`);
         ri.createIssue({
           title: '[MODERATION] Issue Detected',
           body:
