@@ -1,5 +1,5 @@
 import RepoProp from './RepoProp';
-import { bot, gh, submissions, magiskRepo, ORGANIZATION, ID_SET } from './EntryPoint';
+import { gh, ORGANIZATION, ID_SET } from './Shared';
 import errno from './errno';
 
 
@@ -17,7 +17,7 @@ const RepoModerator = repo => {
     // Error found!
     let ri = gh.getIssues(ORGANIZATION, repo.name);
     ri.listIssues().then(res => res.data).then(issues => {
-      issues = issues.filter(issue => issue.user.login === bot);
+      issues = issues.filter(issue => issue.user.login === process.env.MAGISK_SERVER_USERNAME);
       let removeRepo = false;
       issues.forEach(issue => {
         // Check time

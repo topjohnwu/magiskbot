@@ -2,7 +2,7 @@ import util from 'util';
 import getUrls from 'get-urls';
 
 import RepoProp from './RepoProp';
-import { gh, submissions, magiskRepo, ORGANIZATION, ID_SET } from './EntryPoint'
+import { gh, submissions, magiskRepo, ORGANIZATION, ID_SET } from './Shared'
 import errno from './errno';
 
 const createNewRepo = prop => {

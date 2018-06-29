@@ -4,7 +4,8 @@
   "description": "Auto handle new module requests",
   "main": "lib/index.js",
   "scripts": {
-    "start": "nodemon lib/index.js --exec babel-node",
+    "start": "babel-node lib/index.js",
+    "nodemon": "nodemon lib/index.js --exec babel-node",
     "build": "babel lib -d dist",
     "prod": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,8 +17,9 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "get-urls": "^7.2.0",
-    "github-api": "^3.0.0",
-    "parse-github-url": "^1.0.2"
+    "js-base64": "^2.4.5",
+    "parse-github-url": "^1.0.2",
+    "utf8": "^3.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.51",

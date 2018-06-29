@@ -1,4 +1,4 @@
-import { ORGANIZATION } from './EntryPoint';
+import { ORGANIZATION } from './Shared';
 
 const ENOPROP = 1;
 const ENOID = 2;

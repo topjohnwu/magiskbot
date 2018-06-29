@@ -1,4 +1,4 @@
 node_modules
-config.js
 package-lock.json
 dist
+env.sh
