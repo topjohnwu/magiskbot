@@ -16,7 +16,7 @@ server.post('/submit', (req, res) => {
 });
 
 server.post('/moderate', (req, res) => {
-  if (req.body.repository) {
+  if (!req.body.created && req.body.repository) {
     console.log(`[EVENT] ${req.body.repository.name}`);
     RepoModerator(req.body.repository);
   }
