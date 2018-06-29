@@ -1,20 +1,19 @@
 import Github from './Github';
 
 // Load config from external file, contains confidential information
-import config from '../config';
+import { username, token } from '../config';
 
 const ORGANIZATION = 'Magisk-Modules-Repo';
 const SUBMISSION_REPO = 'Magisk_Repo_Submissions';
 
-const gh = new Github({
-  username: config.username,
-  token: config.token
-});
+const ID_SET = new Set();
+const gh = new Github({ username, token });
 
 module.exports = {
-  bot: config.username,
-  gh: gh,
+  bot: username,
+  gh,
   submissions: gh.getIssues('topjohnwu', SUBMISSION_REPO),
   magiskRepo: gh.getOrganization(ORGANIZATION),
-  ORGANIZATION: ORGANIZATION
+  ORGANIZATION,
+  ID_SET
 };

@@ -1,8 +1,11 @@
+import { ORGANIZATION } from './EntryPoint';
+
 const ENOPROP = 1;
 const ENOID = 2;
 const EINVALCODE = 3;
 const EOUTDATE = 4;
 const EOWNER = 5;
+const EEXIST = 6;
 
 const code = err => {
   let code = err;
@@ -17,6 +20,7 @@ const errno = {
   EINVALCODE,
   EOUTDATE,
   EOWNER,
+  EEXIST,
   code,
   throw: (code, msg) => { throw { code, msg } },
   strerr: err => {
@@ -31,6 +35,8 @@ const errno = {
         return `Your module is outdated! Minimum Required: \`1500\`. Current: \`${err.msg}\``;
       case EOWNER:
         return `The repo does not belong to [${err.msg}](https://github.com/${err.msg})`;
+      case EEXIST:
+        return `The \`id\`: \`${err.msg}\` is already used in ${ORGANIZATION}, please choose another one`;
       default:
         return err;
     }

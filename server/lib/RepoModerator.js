@@ -1,5 +1,5 @@
 import RepoProp from './RepoProp';
-import { bot, gh, submissions, magiskRepo, ORGANIZATION } from './EntryPoint';
+import { bot, gh, submissions, magiskRepo, ORGANIZATION, ID_SET } from './EntryPoint';
 import errno from './errno';
 
 
@@ -26,11 +26,11 @@ const RepoModerator = repo => {
           removeRepo = true;
       });
       if (removeRepo) {
-        gh.getRepo(ORGANIZATION, repo.name).deleteRepo().catch();
+        gh.getRepo(ORGANIZATION, repo.name).deleteRepo().then(() => ID_SET.delete(repo.description)).catch();
       } else if (issues.length === 0) {
         ri.createIssue({
           title: '[MODERATION] Issue Detected',
-          body: 
+          body:
 `The moderation server has detected an issue of your repo:
 > ${errno.strerr(err)}
 
