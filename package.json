@@ -27,10 +27,10 @@
     "utf8": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.51",
-    "@babel/core": "^7.0.0-beta.51",
-    "@babel/node": "^7.0.0-beta.51",
-    "@babel/preset-env": "^7.0.0-beta.51",
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
     "nodemon": "^1.17.5"
   }
 }
