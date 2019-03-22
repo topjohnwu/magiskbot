@@ -21,17 +21,17 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "buffer-equal-constant-time": "^1.0.1",
-    "express": "^4.16.2",
-    "get-urls": "^7.2.0",
-    "js-base64": "^2.4.5",
+    "express": "^4.16.4",
+    "get-urls": "^9.0.0",
+    "js-base64": "^2.5.1",
     "parse-github-url": "^1.0.2",
     "utf8": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.0",
-    "@babel/core": "^7.1.0",
-    "@babel/node": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
-    "nodemon": "^1.17.5"
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.2",
+    "nodemon": "^1.18.10"
   }
 }
