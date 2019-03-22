@@ -4,8 +4,8 @@
   "description": "Auto handle new module requests",
   "main": "lib/index.js",
   "engines": {
-    "node": "10.11.x",
-    "npm": "6.4.x"
+    "node": "11.11.x",
+    "npm": "6.7.x"
   },
   "scripts": {
     "start": "babel-node lib/index.js",
