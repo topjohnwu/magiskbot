@@ -18,22 +18,22 @@
   "license": "GPL-3.0",
   "dependencies": {
     "axios": "^0.18.0",
-    "body-parser": "^1.18.2",
+    "body-parser": "^1.19.0",
     "buffer-equal-constant-time": "^1.0.1",
     "express": "^4.16.4",
-    "get-urls": "^9.0.0",
+    "get-urls": "^9.1.0",
     "js-base64": "^2.5.1",
     "parse-github-url": "^1.0.2",
     "utf8": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.4.0",
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
     "@babel/node": "^7.2.2",
-    "@babel/preset-env": "^7.4.2",
-    "eslint": "^5.15.3",
+    "@babel/preset-env": "^7.4.3",
+    "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0",
-    "nodemon": "^1.18.10"
+    "eslint-plugin-import": "^2.17.2",
+    "nodemon": "^1.18.11"
   }
 }
