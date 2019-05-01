@@ -4,8 +4,8 @@
   "description": "Auto handle new module requests",
   "main": "lib/index.js",
   "engines": {
-    "node": "11.11.x",
-    "npm": "6.7.x"
+    "node": "12.1.x",
+    "npm": "6.9.x"
   },
   "scripts": {
     "start": "babel-node lib/index.js",
@@ -27,10 +27,10 @@
     "utf8": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
     "@babel/node": "^7.2.2",
-    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-env": "^7.4.4",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.17.2",
