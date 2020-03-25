@@ -4,12 +4,11 @@
   "description": "Auto handle new module requests",
   "main": "lib/index.js",
   "engines": {
-    "node": "13.5.x",
+    "node": "13.11.x",
     "npm": "6.13.x"
   },
   "scripts": {
     "start": "babel-node lib/index.js",
-    "nodemon": "nodemon lib/index.js --exec babel-node",
     "build": "rm -rf dist && babel lib -d dist",
     "prod": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,23 +16,22 @@
   "author": "topjohnwu",
   "license": "GPL-3.0",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "buffer-equal-constant-time": "^1.0.1",
     "express": "^4.17.1",
     "get-urls": "^9.2.0",
-    "js-base64": "^2.5.1",
+    "js-base64": "^2.5.2",
     "parse-github-url": "^1.0.2",
     "utf8": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.7",
-    "@babel/core": "^7.7.7",
-    "@babel/node": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.19.1",
-    "nodemon": "^2.0.2"
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1"
   }
 }
