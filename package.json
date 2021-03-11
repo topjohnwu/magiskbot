@@ -1,11 +1,11 @@
 {
-  "name": "magisk_server",
+  "name": "magiskbot",
   "version": "1.0.0",
   "description": "Auto handle new module requests",
   "main": "lib/index.js",
   "engines": {
-    "node": "14.13.x",
-    "npm": "6.14.x"
+    "node": "15.11.0",
+    "npm": "7.6.0"
   },
   "scripts": {
     "start": "babel-node lib/index.js",
@@ -14,11 +14,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "topjohnwu",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "buffer-equal-constant-time": "^1.0.1",
+    "debug": "^4.3.1",
     "express": "^4.17.1",
     "get-urls": "^10.0.0",
     "js-base64": "^3.5.2",
