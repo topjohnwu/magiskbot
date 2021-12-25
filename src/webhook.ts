@@ -1,6 +1,6 @@
 import Fastify from 'fastify';
 import { EmitterWebhookEventName, Webhooks } from '@octokit/webhooks';
-import { blockUser } from './utils.js';
+import { blockUser, closeIssue, closePR } from './utils.js';
 
 const webhook = new Webhooks({
   secret: process.env.MAGISK_WEBHOOK_SECRET!,
@@ -10,6 +10,9 @@ webhook.on('issues', async ({ payload }) => {
   const { issue } = payload;
   if (issue.labels?.some((l) => l.name === 'spam')) {
     await blockUser(issue.user.login);
+    if (issue.state !== 'closed') {
+      await closeIssue(issue);
+    }
   }
 });
 
@@ -17,6 +20,9 @@ webhook.on('pull_request', async ({ payload }) => {
   const pr = payload.pull_request;
   if (pr.labels.some((l) => l.name === 'spam')) {
     await blockUser(pr.user.login);
+    if (pr.state !== 'closed') {
+      await closePR(pr);
+    }
   }
 });
 
