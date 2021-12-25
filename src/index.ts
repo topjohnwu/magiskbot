@@ -18,7 +18,7 @@ async function main() {
 
   // Start webhook server
   try {
-    await server.listen(Number(process.env.PORT));
+    await server.listen(Number(process.env.PORT), '0.0.0.0');
     console.log(`Server listening to ${process.env.PORT}`);
   } catch (err) {
     console.log(err);
