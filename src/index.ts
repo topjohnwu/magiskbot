@@ -9,7 +9,6 @@ async function main() {
   setInterval(blockAllSpam, 8 * 60 * 60 * 1000);
 
   // Update download counts every hour
-  await countDownloads();
   setInterval(countDownloads, 60 * 60 * 1000);
 
   // Wake Heroku every 15 mins
