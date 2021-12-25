@@ -1,2 +1,3 @@
 # MagiskBot
-Automation server for managing [Magisk-Modules-Repo](https://github.com/Magisk-Modules-Repo)
+
+Automation bot [MagiskBot](https://github.com/MagiskBot) for managing [Magisk](https://github.com/topjohnwu/Magisk)
