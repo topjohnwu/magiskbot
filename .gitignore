@@ -3,4 +3,4 @@ package-lock.json
 dist
 .env
 setenv.sh
-lib/test.js
+src/test.js
