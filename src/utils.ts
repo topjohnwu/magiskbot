@@ -21,20 +21,47 @@ export async function blockAllSpam() {
   Promise.all([...spamUsers].map(blockUser));
 }
 
-export async function closeIssue(issue: Issue) {
+export async function closeIssue(repo: GithubRepo, issue: Issue) {
   await ghBot.issues.update({
-    owner: 'topjohnwu',
-    repo: 'Magisk',
+    ...repo,
     issue_number: issue.number,
     state: 'closed',
   });
 }
 
-export async function closePR(pr: PullRequest) {
+export async function closePR(repo: GithubRepo, pr: PullRequest) {
   await ghBot.pulls.update({
-    owner: 'topjohnwu',
-    repo: 'Magisk',
+    ...repo,
     pull_number: pr.number,
     state: 'closed',
   });
+}
+
+export async function commentIssue(
+  repo: GithubRepo,
+  issue: Issue,
+  body: string
+) {
+  await ghBot.issues.createComment({
+    ...repo,
+    issue_number: issue.number,
+    body,
+  });
+}
+
+export async function getVersionCode(): Promise<string> {
+  const props = (await gh.repos.getContent({
+    owner: 'topjohnwu',
+    repo: 'Magisk',
+    path: 'gradle.properties',
+  })) as any;
+
+  const ver = Buffer.from(props.data.content, props.data.encoding)
+    .toString()
+    .split('\n')
+    .filter((s) => s.startsWith('magisk.versionCode'))
+    .at(-1)
+    ?.replace('magisk.versionCode=', '') as string;
+
+  return ver;
 }

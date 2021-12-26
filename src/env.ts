@@ -10,12 +10,10 @@ if (
   throw Error('Error: Please setup environment variables');
 }
 
-const ghBot = new Octokit({
+export const ghBot = new Octokit({
   auth: process.env.MAGISK_BOT_TOKEN,
 });
 
-const ghOwner = new Octokit({
+export const ghOwner = new Octokit({
   auth: process.env.MAGISK_OWNER_TOKEN,
 });
-
-export { ghBot, ghOwner };

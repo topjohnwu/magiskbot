@@ -12,18 +12,6 @@ const FILES_REPO_OLD = { owner: 'topjohnwu', repo: 'magisk_files' };
 // files are switched to GitHub releases or jsdelivr.
 const XDA_ATTACHMENTS = 25490945;
 
-interface JsdelivrFileInfo {
-  [path: string]: {
-    total: number;
-    dates: any;
-  };
-}
-
-interface JsdelivrStats {
-  total: number;
-  files: JsdelivrFileInfo;
-}
-
 export default async function countDownloads() {
   const results = {
     totalString: '',
