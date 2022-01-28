@@ -14,3 +14,5 @@ interface GithubRepo {
   owner: string;
   repo: string;
 }
+
+type Unpacked<T> = T extends (infer U)[] ? U : T;
