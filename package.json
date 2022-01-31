@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "type": "module",
   "engines": {
-    "node": "17.2.0",
-    "npm": "8.1.4"
+    "node": "v17.4.0",
+    "npm": "8.4.0"
   },
   "scripts": {
     "start": "esrun src/index.ts",
