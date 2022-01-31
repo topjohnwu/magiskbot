@@ -70,7 +70,7 @@ server.post('/webhook', async (req, res) => {
   res.send();
 });
 
-server.post('/ping', (_, res) => {
+server.get('/ping', (_, res) => {
   res.send();
 });
 
