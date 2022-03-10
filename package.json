@@ -11,7 +11,8 @@
   "scripts": {
     "start": "esrun src/index.ts",
     "build": "rm -rf dist && tsc",
-    "prod": "node dist/index.js"
+    "prod": "node dist/index.js",
+    "count": "esrun src/count.ts"
   },
   "author": "topjohnwu",
   "devDependencies": {

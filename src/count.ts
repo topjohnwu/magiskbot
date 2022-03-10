@@ -116,7 +116,7 @@ function newInfo(xda: number = 0): DetailInfo {
   };
 }
 
-export default async function countDownloads() {
+async function countDownloads() {
   const results = {
     totalString: '',
     total: 0,
@@ -353,3 +353,5 @@ export default async function countDownloads() {
     sha,
   });
 }
+
+countDownloads();
