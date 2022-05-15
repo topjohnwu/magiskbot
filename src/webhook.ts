@@ -35,7 +35,7 @@ webhook.on('issues', async ({ payload }) => {
     if (!versionCodeLine?.includes(ver)) {
       const msg =
         'Invalid bug report, automatically closed.\n' +
-        `Please report issues using the latest canary Magisk version (version code: ${ver}).`;
+        `Please report issues using the latest debug Magisk build (version code: ${ver}).`;
       await Promise.all([
         commentIssue(repo, issue, msg),
         closeIssue(repo, issue),
