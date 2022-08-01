@@ -340,6 +340,8 @@ async function countDownloads() {
   results.total = results.release.public + results.release.canary;
   results.totalString = results.total.toLocaleString();
 
+  console.dir(results, { depth: null });
+
   // Submit results to GitHub
   const dateStr = new Date().toJSON().replace('T', ' ').replace('Z', '');
   const resultStr = `${JSON.stringify(results, null, 2)}\n`;
