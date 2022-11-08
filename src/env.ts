@@ -1,4 +1,5 @@
 import { Octokit } from '@octokit/rest';
+import fetch from 'node-fetch';
 
 if (
   process.env.MAGISK_BOT_TOKEN === undefined ||
@@ -12,8 +13,10 @@ if (
 
 export const ghBot = new Octokit({
   auth: process.env.MAGISK_BOT_TOKEN,
+  request: { fetch },
 });
 
 export const ghOwner = new Octokit({
   auth: process.env.MAGISK_OWNER_TOKEN,
+  request: { fetch },
 });
