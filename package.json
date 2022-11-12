@@ -5,8 +5,7 @@
   "main": "dist/index.js",
   "type": "module",
   "engines": {
-    "node": "v18.7.0",
-    "npm": "8.15.0"
+    "node": "v19.x"
   },
   "scripts": {
     "start": "esrun src/index.ts",
@@ -16,25 +15,25 @@
   },
   "author": "topjohnwu",
   "devDependencies": {
-    "@digitak/esrun": "^3.2.9",
+    "@digitak/esrun": "^3.2.14",
     "@tsconfig/node16": "^1.0.3",
-    "@types/node": "^18.6.3",
-    "@typescript-eslint/eslint-plugin": "^5.32.0",
-    "@typescript-eslint/parser": "^5.32.0",
-    "eslint": "^8.21.0",
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "eslint": "^8.27.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "prettier": "2.7.1",
-    "typescript": "^4.7.4"
+    "typescript": "^4.8.4"
   },
   "dependencies": {
-    "@octokit/rest": "^19.0.3",
-    "@octokit/types": "^6.41.0",
-    "@octokit/webhooks": "^10.0.9",
-    "fastify": "^4.3.0",
-    "node-fetch": "^3.2.10"
+    "@octokit/rest": "^19.0.5",
+    "@octokit/types": "^8.0.0",
+    "@octokit/webhooks": "^10.3.1",
+    "fastify": "^4.9.2",
+    "node-fetch": "^3.3.0"
   },
   "prettier": {
     "singleQuote": true
