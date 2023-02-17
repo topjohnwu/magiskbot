@@ -238,17 +238,17 @@ async function countDownloads() {
   });
 
   const statsUrl = (repo: string, name: string) =>
-    `https://data.jsdelivr.com/v1/package/gh/topjohnwu/${repo}@${name}/stats/all`;
+    `https://data.jsdelivr.com/v1/stats/packages/gh/topjohnwu/${repo}@${name}/files?period=all`;
 
   async function collectJsStats(url: string, name: string) {
-    const stats = (await (await fetch(url)).json()) as JsdelivrStats;
+    const stats = (await (await fetch(url)).json()) as [JsdelivrFileInfo];
     const dInfo = getInfo(name);
     let count = 0;
-    Object.entries(stats.files).forEach(([path, info]) => {
-      const { total } = info;
-      if (path.endsWith('.apk')) {
+    stats.forEach((stat) => {
+      const { total } = stat.hits;
+      if (stat.name.endsWith('.apk')) {
         dInfo.type.apk += total;
-      } else if (path.endsWith('.zip')) {
+      } else if (stat.name.endsWith('.zip')) {
         dInfo.type.zip += total;
       } else {
         return;

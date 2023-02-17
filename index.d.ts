@@ -1,13 +1,10 @@
 interface JsdelivrFileInfo {
-  [path: string]: {
+  name: string;
+  hits: {
     total: number;
     dates: any;
   };
-}
-
-interface JsdelivrStats {
-  total: number;
-  files: JsdelivrFileInfo;
+  bandwidth: any;
 }
 
 interface GithubRepo {
