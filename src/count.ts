@@ -265,8 +265,13 @@ async function countDownloads() {
   requests.push(
     ...releaseTags.map(async (tag) => {
       const { name } = tag;
-      const count = await collectJsStats(statsUrl('magisk-files', name), name);
-      results.release.public += count;
+      if (name !== 'files') {
+        const count = await collectJsStats(
+          statsUrl('magisk-files', name),
+          name,
+        );
+        results.release.public += count;
+      }
     }),
   );
 
