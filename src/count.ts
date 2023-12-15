@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import { GetResponseDataTypeFromEndpointMethod } from '@octokit/types';
 import { ghBot as gh } from './env.js';
 
@@ -268,7 +267,7 @@ async function countDownloads() {
       const { name } = tag;
       const count = await collectJsStats(statsUrl('magisk-files', name), name);
       results.release.public += count;
-    })
+    }),
   );
 
   function processCanary(repo: string) {
@@ -295,7 +294,7 @@ async function countDownloads() {
       ...FILES_REPO,
       path: 'count.json',
       ref: 'count',
-    })
+    }),
   );
 
   // Wait for all results

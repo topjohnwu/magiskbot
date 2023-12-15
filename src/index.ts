@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import { blockAllSpam } from './utils.js';
 import server from './webhook.js';
 
