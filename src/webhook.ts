@@ -64,7 +64,7 @@ server.post('/webhook', async (req, res) => {
   await webhook.verifyAndReceive({
     id: req.headers['x-github-delivery'] as string,
     name: req.headers['x-github-event'] as EmitterWebhookEventName,
-    payload: req.body as any,
+    payload: JSON.stringify(req.body),
     signature: req.headers['x-hub-signature-256'] as string,
   });
   res.send();
