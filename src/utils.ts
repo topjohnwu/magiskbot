@@ -21,11 +21,12 @@ export async function blockAllSpam() {
   Promise.all([...spamUsers].map(blockUser));
 }
 
-export async function closeIssue(repo: GithubRepo, issue: Issue) {
+export async function closeIssue(repo: GithubRepo, issue: Issue, reason?: any) {
   await ghBot.issues.update({
     ...repo,
     issue_number: issue.number,
     state: 'closed',
+    state_reason: reason || 'not_planned',
   });
 }
 
