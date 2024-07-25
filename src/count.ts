@@ -32,7 +32,7 @@ type GhContentType = Unpacked<
   GetResponseDataTypeFromEndpointMethod<typeof gh.repos.getContent>
 >;
 
-async function countDownloads() {
+export default async function countDownloads() {
   const results: ResultInfo = {
     totalString: '',
     total: 0,
@@ -201,5 +201,3 @@ async function countDownloads() {
     sha: count_json.sha,
   });
 }
-
-countDownloads();

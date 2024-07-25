@@ -10,12 +10,10 @@
   "scripts": {
     "start": "esrun src/index.ts",
     "build": "rm -rf dist && tsc",
-    "prod": "node dist/index.js",
-    "count": "esrun src/count.ts"
+    "prod": "node dist/index.js"
   },
   "author": "topjohnwu",
   "devDependencies": {
-    "@digitak/esrun": "^3.2.26",
     "@tsconfig/node22": "^22.0.0",
     "@types/node": "^20.14.12",
     "@typescript-eslint/eslint-plugin": "^7.17.0",
@@ -25,6 +23,7 @@
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
+    "esrun": "^3.2.26",
     "prettier": "3.3.3",
     "typescript": "^5.5.4"
   },
