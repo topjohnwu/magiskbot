@@ -1,3 +1,4 @@
+import { GetResponseDataTypeFromEndpointMethod } from '@octokit/types';
 import { Issue, PullRequest } from '@octokit/webhooks-types';
 import { ghOwner as gh, ghBot } from './env.js';
 
@@ -40,7 +41,7 @@ export async function closePR(repo: GithubRepo, pr: PullRequest) {
 export async function commentIssue(
   repo: GithubRepo,
   issue: Issue,
-  body: string
+  body: string,
 ) {
   await ghBot.issues.createComment({
     ...repo,
@@ -49,19 +50,27 @@ export async function commentIssue(
   });
 }
 
+type GhContentType = Unpacked<
+  GetResponseDataTypeFromEndpointMethod<typeof ghBot.repos.getContent>
+>;
+
 export async function getVersionCode(): Promise<string> {
-  const props = (await gh.repos.getContent({
-    owner: 'topjohnwu',
-    repo: 'Magisk',
-    path: 'gradle.properties',
-  })) as any;
+  const props = (
+    await ghBot.repos.getContent({
+      owner: 'topjohnwu',
+      repo: 'Magisk',
+      path: 'gradle.properties',
+    })
+  ).data as GhContentType;
 
-  const ver = Buffer.from(props.data.content, props.data.encoding)
-    .toString()
-    .split('\n')
-    .filter((s) => s.startsWith('magisk.versionCode'))
-    .at(-1)
-    ?.replace('magisk.versionCode=', '') as string;
+  if (props.type === 'file' && 'encoding' in props) {
+    return Buffer.from(props.content, props.encoding as BufferEncoding)
+      .toString()
+      .split('\n')
+      .filter((s) => s.startsWith('magisk.versionCode'))
+      .at(-1)
+      ?.replace('magisk.versionCode=', '') as string;
+  }
 
-  return ver;
+  return '';
 }

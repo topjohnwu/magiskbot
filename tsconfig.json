@@ -5,5 +5,6 @@
     "types": ["node"],
     "module": "ES6",
     "moduleResolution": "node",
+    "noErrorTruncation": true
   }
 }

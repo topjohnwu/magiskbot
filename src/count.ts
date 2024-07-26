@@ -32,7 +32,7 @@ type GhContentType = Unpacked<
   GetResponseDataTypeFromEndpointMethod<typeof gh.repos.getContent>
 >;
 
-export default async function countDownloads() {
+async function countDownloads(): Promise<string> {
   const results: ResultInfo = {
     totalString: '',
     total: 0,
@@ -80,7 +80,7 @@ export default async function countDownloads() {
 
   const [ghReleases, mgrReleases] = metadata;
 
-  function collectGhStats(name: string, release: GhReleaseType): DetailInfo {
+  function updateGhStats(name: string, release: GhReleaseType): DetailInfo {
     const info = getInfo(name);
     let count = 0;
     release.assets.forEach((asset) => {
@@ -100,26 +100,35 @@ export default async function countDownloads() {
   }
 
   // Scan through all releases
-  ghReleases.forEach((release) => {
-    const tag = release.tag_name;
-    let name: string;
-    if (tag.includes('manager')) {
-      const ver = tag.replace('manager-v', '');
-      name = appVersionMapping[ver];
-    } else if (release.prerelease) {
-      const date = new Date(release.created_at).toISOString().substring(0, 10);
-      name = `${date} (${tag})`;
-    } else {
-      name = tag.replace('v', '');
-    }
-    const info = collectGhStats(name, release);
-    info.is_canary = release.prerelease;
-  });
+  await Promise.all(
+    ghReleases.map(async (release) => {
+      const tag = release.tag_name;
+      let name: string;
+      if (tag.includes('manager')) {
+        const ver = tag.replace('manager-v', '');
+        name = appVersionMapping[ver];
+      } else if (release.prerelease) {
+        const date = new Date(release.created_at)
+          .toISOString()
+          .substring(0, 10);
+        // Get sha value from the tag name
+        const sha = (
+          await gh.git.getRef({ ...MAGISK_REPO, ref: `tags/${tag}` })
+        ).data.object.sha;
+        const ver = sha.substring(0, 8);
+        name = `${date} (${ver})`;
+      } else {
+        name = tag.replace('v', '');
+      }
+      const info = updateGhStats(name, release);
+      info.is_canary = release.prerelease;
+    }),
+  );
 
   mgrReleases.forEach((release) => {
     const ver = release.tag_name.replace('v', '');
     const name = appVersionMapping[ver];
-    collectGhStats(name, release);
+    updateGhStats(name, release);
   });
 
   function versionComparator(a: string, b: string): number {
@@ -176,10 +185,11 @@ export default async function countDownloads() {
     return value;
   }
 
-  const resultStr = `${JSON.stringify(results, trimObject, 2)}\n`;
-  const resultObj = JSON.parse(resultStr);
+  return `${JSON.stringify(results, trimObject, 2)}\n`;
+}
 
-  console.dir(resultObj, { depth: null });
+export default async function updateCountJson() {
+  const resultStr = await countDownloads();
 
   // Fetch the blob sha of the existing count.json
   const count_json = (
@@ -201,3 +211,12 @@ export default async function countDownloads() {
     sha: count_json.sha,
   });
 }
+
+// For testing only
+// Uncomment the last line and call: `npx esrun src/count.ts`
+async function localTest() {
+  const resultStr = await countDownloads();
+  const resultObj = JSON.parse(resultStr);
+  console.dir(resultObj, { depth: null });
+}
+// localTest();

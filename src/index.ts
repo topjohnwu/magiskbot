@@ -1,6 +1,6 @@
 import { blockAllSpam } from './utils.js';
 import server from './webhook.js';
-import countDownloads from './count.js';
+import updateCountJson from './count.js';
 
 async function main() {
   // Scan and block all spam every 8 hours
@@ -8,8 +8,8 @@ async function main() {
   setInterval(blockAllSpam, 8 * 60 * 60 * 1000);
 
   // Count downloads every 24 hours
-  await countDownloads();
-  setInterval(countDownloads, 24 * 60 * 60 * 1000);
+  await updateCountJson();
+  setInterval(updateCountJson, 24 * 60 * 60 * 1000);
 
   // Start webhook server
   try {
