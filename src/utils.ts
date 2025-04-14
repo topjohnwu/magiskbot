@@ -74,3 +74,19 @@ export async function getVersionCode(): Promise<string> {
 
   return '';
 }
+
+export async function lockSpamIssue(repo: GithubRepo, issue: Issue) {
+  await ghBot.issues.lock({
+    ...repo,
+    issue_number: issue.number,
+    lock_reason: 'spam',
+  });
+}
+
+export async function lockSpamPR(repo: GithubRepo, pr: PullRequest) {
+  await ghBot.pulls.lock({
+    ...repo,
+    pull_number: pr.number,
+    lock_reason: 'spam',
+  });
+}
