@@ -11,6 +11,8 @@ import {
   closePR,
   commentIssue,
   getVersionCode,
+  lockSpamIssue,
+  lockSpamPR,
 } from './utils.js';
 
 const webhook = new Webhooks({
@@ -27,6 +29,7 @@ webhook.on('issues', async ({ payload }) => {
     await blockUser(issue.user.login);
     if (issue.state !== 'closed') {
       await closeIssue(repo, issue);
+      await lockSpamIssue(repo, issue);
     }
     return;
   }
@@ -59,6 +62,7 @@ webhook.on('pull_request', async ({ payload }) => {
         repo: payload.repository.name,
       };
       await closePR(repo, pr);
+      await lockSpamPR(repo, pr);
     }
   }
 });
