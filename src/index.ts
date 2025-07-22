@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { blockAllSpam } from './utils.js';
 import server from './webhook.js';
 import updateCountJson from './count.js';
@@ -20,4 +21,4 @@ async function main() {
   }
 }
 
-main();
+await main();

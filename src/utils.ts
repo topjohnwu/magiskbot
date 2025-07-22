@@ -18,8 +18,8 @@ export async function blockAllSpam() {
     labels: 'spam',
     state: 'all',
   });
-  const spamUsers = new Set(spam.map((e) => e.user?.login as string));
-  Promise.all([...spamUsers].map(blockUser));
+  const spamUsers = new Set(spam.map((e) => e.user!.login));
+  return Promise.all([...spamUsers].map(blockUser));
 }
 
 export async function closeIssue(repo: GithubRepo, issue: Issue) {
@@ -68,8 +68,8 @@ export async function getVersionCode(): Promise<string> {
       .toString()
       .split('\n')
       .filter((s) => s.startsWith('magisk.versionCode'))
-      .at(-1)
-      ?.replace('magisk.versionCode=', '') as string;
+      .at(-1)!
+      .replace('magisk.versionCode=', '');
   }
 
   return '';

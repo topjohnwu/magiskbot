@@ -961,7 +961,7 @@ export const frozenStats: VersionInfo = {
 // Back in the days, the Magisk app is called Magisk Manager, and is released
 // out-of-band from Magisk. Here we create a version mapping to allow metrics
 // to be attributed to the correct Magisk version.
-export const appVersionMapping: { [version: string]: string } = {
+export const appVersionMapping: Record<string, string> = {
   '3.0': '10.1',
   '3.1': '11.0',
   '4.0': '11.1',

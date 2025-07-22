@@ -175,7 +175,7 @@ async function countDownloads(): Promise<string> {
   results.totalString = results.total.toLocaleString();
 
   // Trim the result object
-  function trimObject(key: any, value: any): any {
+  function trimObject(key: unknown, value: unknown): unknown {
     if (value === 0) {
       return undefined;
     }
@@ -212,11 +212,12 @@ export default async function updateCountJson() {
   });
 }
 
-// For testing only
-// Uncomment the last line and call: `npx esrun src/count.ts`
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function localTest() {
   const resultStr = await countDownloads();
-  const resultObj = JSON.parse(resultStr);
+  const resultObj: unknown = JSON.parse(resultStr);
   console.dir(resultObj, { depth: null });
 }
-// localTest();
+
+// Uncomment the next line and call: `npx tsx src/count.ts`
+// await localTest();
