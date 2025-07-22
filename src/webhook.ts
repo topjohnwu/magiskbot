@@ -5,6 +5,7 @@ import {
   IssuesEvent,
   PullRequestEvent,
 } from '@octokit/webhooks-types';
+import { purgeOutdatedCache } from './cache.js';
 import {
   blockUser,
   closeIssue,
@@ -60,6 +61,12 @@ webhook.on('pull_request', async ({ payload }) => {
       };
       await closePR(repo, pr);
     }
+  }
+});
+
+webhook.on('workflow_run', async ({ payload }) => {
+  if (payload.action === 'completed') {
+    await purgeOutdatedCache();
   }
 });
 
