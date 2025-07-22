@@ -84,9 +84,9 @@ export async function lockSpamIssue(repo: GithubRepo, issue: Issue) {
 }
 
 export async function lockSpamPR(repo: GithubRepo, pr: PullRequest) {
-  await ghBot.pulls.lock({
+  await ghBot.issues.lock({
     ...repo,
-    pull_number: pr.number,
+    issue_number: pr.number,
     lock_reason: 'spam',
   });
 }

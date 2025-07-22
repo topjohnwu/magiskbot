@@ -29,8 +29,10 @@ webhook.on('issues', async ({ payload }) => {
   if (issue.labels?.some((l) => l.name === 'spam')) {
     await blockUser(issue.user.login);
     if (issue.state !== 'closed') {
-      await closeIssue(repo, issue);
-      await lockSpamIssue(repo, issue);
+      await Promise.all([
+        closeIssue(repo, issue),
+        lockSpamIssue(repo, issue)
+      ]);
     }
     return;
   }
@@ -62,8 +64,10 @@ webhook.on('pull_request', async ({ payload }) => {
         owner: payload.repository.owner.login,
         repo: payload.repository.name,
       };
-      await closePR(repo, pr);
-      await lockSpamPR(repo, pr);
+      await Promise.all([
+        closePR(repo, pr),
+        lockSpamPR(repo, pr)
+      ]);
     }
   }
 });
