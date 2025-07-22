@@ -107,7 +107,7 @@ async function countDownloads(): Promise<string> {
       if (tag.includes('manager')) {
         const ver = tag.replace('manager-v', '');
         name = appVersionMapping[ver];
-      } else if (release.prerelease) {
+      } else if (tag.startsWith('canary')) {
         const date = new Date(release.created_at)
           .toISOString()
           .substring(0, 10);
