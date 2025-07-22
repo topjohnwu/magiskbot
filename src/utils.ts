@@ -59,7 +59,7 @@ export async function getVersionCode(): Promise<string> {
     await ghBot.repos.getContent({
       owner: 'topjohnwu',
       repo: 'Magisk',
-      path: 'gradle.properties',
+      path: 'app/gradle.properties',
     })
   ).data as GhContentType;
 
