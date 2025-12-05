@@ -14,6 +14,7 @@ import {
   getVersionCode,
   lockSpamIssue,
   lockSpamPR,
+  rerunAction,
 } from './utils.js';
 
 const webhook = new Webhooks({
@@ -75,6 +76,14 @@ webhook.on('pull_request', async ({ payload }) => {
 webhook.on('workflow_run', async ({ payload }) => {
   if (payload.action === 'completed') {
     await purgeOutdatedCache();
+    if (payload.workflow_run.conclusion == 'failure' && payload.workflow_run.run_attempt < 3) {
+      // Automatically retry on failure, at most 3 times
+      const repo = {
+        owner: payload.repository.owner.login,
+        repo: payload.repository.name,
+      };
+      await rerunAction(repo, payload.workflow_run.id)
+    }
   }
 });
 

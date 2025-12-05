@@ -90,3 +90,10 @@ export async function lockSpamPR(repo: GithubRepo, pr: PullRequest) {
     lock_reason: 'spam',
   });
 }
+
+export async function rerunAction(repo: GithubRepo, run_id: number) {
+  await gh.actions.reRunWorkflowFailedJobs({
+    ...repo,
+    run_id,
+  });
+}
