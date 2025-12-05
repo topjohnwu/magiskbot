@@ -1,8 +1,8 @@
-FROM debian:bullseye as builder
+FROM debian:latest as builder
 
-ARG NODE_VERSION=24.4.1
+ARG NODE_VERSION=25.2.1
 
-RUN apt-get update; apt install -y curl
+RUN apt-get update; apt install -y curl libatomic1
 RUN curl https://get.volta.sh | bash
 ENV VOLTA_HOME /root/.volta
 ENV PATH /root/.volta/bin:$PATH
@@ -22,7 +22,7 @@ ENV NODE_ENV production
 COPY . .
 
 RUN npm install --production=false && npm run build
-FROM debian:bullseye
+FROM debian:latest
 
 LABEL fly_launch_runtime="nodejs"
 
@@ -32,5 +32,6 @@ COPY --from=builder /app /app
 WORKDIR /app
 ENV NODE_ENV production
 ENV PATH /root/.volta/bin:$PATH
+RUN apt-get update; apt install -y libatomic1
 
 CMD [ "npm", "run", "prod" ]
